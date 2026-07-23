@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="https://woglitlight.github.io/LieentTeamWebPage/LieentIcon.ico" type="image/x-icon">
-    <title>Lieent Team Official</title>
+    <title data-en="Lieent Team Official" data-cn="灯尼特团队官方">Lieent Team Official</title>
 
     <style>
         * {
@@ -175,13 +175,16 @@
 </head>
 
 <body>
+      <li class="menuparent"><a href="#" data-en="Language" data-cn="语言">Language</a><ul>
+      <li><a href="#" onclick="setLanguage('en')" data-en="English" data-cn="英文">English</a></li>
+      <li><a href="#" onclick="setLanguage('cn')" data-en="Chinese" data-cn="中文">Chinese</a></li>
 
     <div class="container">
 
         <!-- 标题 -->
         <div class="section">
 
-            <h1>Welcome To Lieent Team</h1>
+            <h1 data-en="Welcome To Lieent Team" data-cn="欢迎来到灯尼特团队">Welcome To Lieent Team</h1>
 
             <img
                 class="logo-img"
@@ -196,7 +199,7 @@
                     onclick="window.open(
                         'https://woglitlight.github.io/LieentTeamWOGModsWebPage/LieentTeamWOGModsWebPage.html',
                         '_blank'
-                    )"
+                    )" data-en="🎮 Visit Lieent Team's WOG Mods" data-cn="🎮 参观灯尼特团队的粘粘世界Mod"
                 >
                     🎮 Visit Lieent Team's WOG Mods
                 </button>
@@ -208,7 +211,7 @@
         <!-- Discord -->
         <div class="section">
 
-            <div class="section-title">
+            <div class="section-title" data-en="Join Our Discord Server" data-cn="加入我们的Discord服务器">
                 Join Our Discord Server
             </div>
 
@@ -225,7 +228,7 @@
                     onclick="window.open(
                         'https://discord.gg/desaedU5GX',
                         '_blank'
-                    )"
+                    )" data-en="💬 Join Our Discord Server" data-cn="💬 加入我们的Discord服务器"
                 >
                     💬 Join Our Discord Server
                 </button>
@@ -236,5 +239,36 @@
 
     </div>
 
+
+<script>
+function setLanguage(lang) {
+
+    // 保存语言
+    localStorage.setItem("goofans_language", lang);
+
+    // 切换文字
+    document.querySelectorAll("[data-en]").forEach(function(el) {
+
+        if(lang === "cn") {
+            el.innerHTML = el.getAttribute("data-cn");
+        } else {
+            el.innerHTML = el.getAttribute("data-en");
+        }
+
+    });
+
+    // 切换图片
+    document.querySelectorAll("img[data-en-src]").forEach(function(img) {
+
+        if(lang === "cn") {
+            img.src = img.getAttribute("data-cn-src");
+        } else {
+            img.src = img.getAttribute("data-en-src");
+        }
+
+    });
+
+}
+</script>
 </body>
 </html>
